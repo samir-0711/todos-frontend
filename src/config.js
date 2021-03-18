@@ -10,6 +10,7 @@ const urls = {
     signin: `${base}/api/v1/auth/sign-in`,
     signup: `${base}/api/v1/auth/sign-up`,
     markAll: `${base}/api/v1/todo/mark-all`,
+    unmarkAll: `${base}/api/v1/todo/unmark-all`,
     deleteAll: `${base}/api/v1/todo/delete-all`
 };
 

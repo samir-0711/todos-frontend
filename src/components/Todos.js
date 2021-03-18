@@ -30,13 +30,12 @@ function Todos({ setIsAuthenticated }) {
         const token = JSON.parse(window.localStorage.getItem('token'));
         try {
             const {data} = await axios.get(`${urls.verifyToken}/${token}`);
-            console.log(data);
             setUserID(data.userID);
             setIsAuthenticated(true)
             fetchTodos(data.userID);
         } catch(error) {
             if(error.response) {
-                toast.error(error.response.data.message);
+                toast.error("Login First");
             } else if(error.request) {
                 toast.error("Server Error!");
             } else {
@@ -179,6 +178,27 @@ function Todos({ setIsAuthenticated }) {
         }
     }
 
+    async function unmarkAll() {
+        try {
+            await axios.patch(`${urls.unmarkAll}/${userID}`);
+            setTodos(todos.map(todo => {
+                if(todo.status) {
+                    return {...todo, status: false};
+                } else {
+                    return todo;
+                }
+            }));
+        } catch(error) {
+            if(error.response) {
+                toast.error(error.response.data.message);
+            } else if(error.request) {
+                toast.error("Server Error!");
+            } else {
+                toast.error(error.message);
+            }
+        }
+    }
+
     async function deleteAll() {
         try {
             await axios.delete(`${urls.deleteAll}/${userID}`);
@@ -222,6 +242,9 @@ function Todos({ setIsAuthenticated }) {
                 <button
                     onClick={() => markAll()}
                 >Mark All</button>
+                <button
+                    onClick={() => unmarkAll()}
+                >Unmark All</button>
                 <button
                     onClick={() => deleteAll()}
                 >Remove All</button>
