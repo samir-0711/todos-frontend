@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-image: linear-gradient(
+    to left bottom,
+    #6b95d4,
+    #00ace3,
+    #00bec3,
+    #00c779,
+    #88c500
+  );
+  min-height: 100vh;
 }
 
 /* Header */
@@ -11,7 +20,23 @@ header {
   box-shadow: 0 0 11px 3px rgba(128, 128, 128, 0.5);
   position: sticky;
   top: 0;
-  background-color: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 237, 98, 1) 0%,
+    rgba(138, 230, 106, 1) 0%,
+    rgba(89, 103, 216, 0.6337885495995272) 0%,
+    rgba(130, 209, 124, 1) 0%,
+    rgba(122, 220, 114, 0.7234244039412641) 0%,
+    rgba(137, 233, 103, 1) 0%,
+    rgba(246, 154, 108, 1) 17%,
+    rgba(220, 169, 108, 1) 77%,
+    rgba(127, 224, 110, 1) 100%,
+    rgba(141, 237, 100, 1) 100%,
+    rgba(137, 227, 108, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 header .left a {
@@ -36,6 +61,23 @@ header .logout {
 .login {
   padding: 1rem;
   padding-top: 5rem;
+  border: 2px solid black;
+  width: 300px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to top,
+    #b3cff9,
+    #9bdef8,
+    #9ce9e7,
+    #b8efcf,
+    #e1f0be
+  );
+  border-radius: 10px;
 }
 
 .login .title {
@@ -60,6 +102,8 @@ header .logout {
 .login button {
   font-size: 1rem;
   margin-top: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 /* Todos */
